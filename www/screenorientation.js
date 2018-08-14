@@ -52,10 +52,11 @@ setOrientationProperties();
 
 function addScreenOrientationApi(screenObject) {
 
+/* Force to use Plugin as nativeLock requires Fullscreen mode
     if (screenObject.unlock || screenObject.lock) {
         screenObject.nativeLock = screenObject.lock;
     }
-
+*/
     screenObject.lock = function(orientation) {
         var promiseLock;
         var p = new Promise(function(resolve, reject) {
