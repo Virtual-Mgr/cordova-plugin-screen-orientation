@@ -152,6 +152,6 @@ function setOrientationProperties() {
 }
 window.addEventListener("orientationchange", orientationchange, true);
 
-screenOrientation.isPlugin = true;
+screen.orientation.isPlugin = true;
 
 module.exports = screenOrientation;
