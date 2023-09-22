@@ -60,7 +60,7 @@ screenOrientation.unlock = function () {
 
 setOrientationProperties();
 
-function resolveOrientation (orientation, resolve, reject) {
+function resolveOrientation(orientation, resolve, reject) {
     if (!Object.prototype.hasOwnProperty.call(OrientationLockType, orientation)) {
         var err = new Error();
         err.name = 'NotSupportedError';
@@ -105,26 +105,28 @@ screenOrientation.removeEventListener = function (a, b, c) {
     return evtTarget.removeEventListener(a, b, c);
 };
 
-function setOrientationProperties () {
+function setOrientationProperties() {
     switch (window.orientation) {
-    case 0:
-        screenOrientation.type = 'portrait-primary';
-        break;
-    case 90:
-        screenOrientation.type = 'landscape-primary';
-        break;
-    case 180:
-        screenOrientation.type = 'portrait-secondary';
-        break;
-    case -90:
-        screenOrientation.type = 'landscape-secondary';
-        break;
-    default:
-        screenOrientation.type = 'portrait-primary';
-        break;
+        case 0:
+            screenOrientation.type = 'portrait-primary';
+            break;
+        case 90:
+            screenOrientation.type = 'landscape-primary';
+            break;
+        case 180:
+            screenOrientation.type = 'portrait-secondary';
+            break;
+        case -90:
+            screenOrientation.type = 'landscape-secondary';
+            break;
+        default:
+            screenOrientation.type = 'portrait-primary';
+            break;
     }
     screenOrientation.angle = window.orientation || 0;
 }
 window.addEventListener('orientationchange', orientationchange, true);
+
+screen.orientation.isPlugin = true;
 
 module.exports = screenOrientation;
