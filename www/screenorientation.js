@@ -127,6 +127,7 @@ function setOrientationProperties() {
 }
 window.addEventListener('orientationchange', orientationchange, true);
 
-screen.orientation.isPlugin = true;
+// Not sure why we did this, but VMPlayer checks for .isPlugin == true before allowing calls to it
+screenOrientation.isPlugin = true;
 
 module.exports = screenOrientation;
